@@ -6,15 +6,26 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { Button } from 'reactstrap';
 
 //props -> the items from the storage
 export default function BasicTable({ props }) {
     function createData(ProductID, ProductName, ProductPrice) {
         return { ProductID, ProductName, ProductPrice };
     }
-    const rows = props.map((product) => {
+    // const rows = props.map((product) => {
+    //     return createData(product.ProductID, product.ProductName, product.ProductPrice);
+    // });
+    const [rows, setRows] = React.useState(props.map((product) => {
         return createData(product.ProductID, product.ProductName, product.ProductPrice);
-    });
+    }));
+    const deleteItem = (id) => {
+        const updatedRows = rows.filter((row) => row.ProductID !== id);
+        setRows(updatedRows);
+    };
+    React.useEffect(() => {
+        localStorage.setItem('Products', JSON.stringify(rows))
+    }, [rows]);
     return (
 
         <TableContainer component={Paper}>
@@ -24,6 +35,7 @@ export default function BasicTable({ props }) {
                         <TableCell align="center">ProductID</TableCell>
                         <TableCell align="center"> ProductName</TableCell>
                         <TableCell align="center">ProductPrice</TableCell>
+                        <TableCell align="center">Delete</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
@@ -36,11 +48,13 @@ export default function BasicTable({ props }) {
                             </TableCell>
                             <TableCell align="center">{row.ProductName}</TableCell>
                             <TableCell align="center">{row.ProductPrice}</TableCell>
+                            <TableCell align="center">  <Button align="center" onClick={() => deleteItem(row.ProductID)}>Delete</Button></TableCell>
+
                         </TableRow>
                     ))}
                 </TableBody>
             </Table>
-        </TableContainer>
+        </TableContainer >
     );
 }
 
