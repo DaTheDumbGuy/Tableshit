@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Tableshit/static/css/main.ababef68.css",
+    "main.js": "/Tableshit/static/js/main.c45e67d2.js",
+    "static/js/787.1a33adb6.chunk.js": "/Tableshit/static/js/787.1a33adb6.chunk.js",
+    "index.html": "/Tableshit/index.html",
+    "main.ababef68.css.map": "/Tableshit/static/css/main.ababef68.css.map",
+    "main.c45e67d2.js.map": "/Tableshit/static/js/main.c45e67d2.js.map",
+    "787.1a33adb6.chunk.js.map": "/Tableshit/static/js/787.1a33adb6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ababef68.css",
+    "static/js/main.c45e67d2.js"
+  ]
+}
