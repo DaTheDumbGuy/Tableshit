@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import Link from '@mui/material/Link';
-
+import ContactUs from '../pages/ContactUs';
 export default function ButtonAppBar() {
     return (
         <Box sx={{ flexGrow: 1 }}>
@@ -28,6 +28,7 @@ export default function ButtonAppBar() {
                     <Link style={{ textDecoration: 'none' }} className="nav-link" component={Button} variant='body2' color='inherit' href='/'>Home</Link>
                     <Link style={{ textDecoration: 'none' }} className="nav-link" component={Button} variant='body2' color='inherit' href='/AboutUs'>About Us</Link>
                     <Link style={{ textDecoration: 'none' }} className="nav-link" component={Button} variant='body2' color='inherit' href='/ProductInformation'>Product Information</Link>
+                    <Link style={{ textDecoration: 'none' }} className="nav-link" component={Button} variant='body2' color='inherit' href='/ContactUs'>Contact Us</Link>
                     <Button color="inherit">Login</Button>
                 </Toolbar>
             </AppBar>

@@ -7,6 +7,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import { Button } from 'reactstrap';
+import { useEffect, useState } from 'react';
 
 //props -> the items from the storage
 export default function BasicTable({ props }) {
@@ -16,14 +17,15 @@ export default function BasicTable({ props }) {
     // const rows = props.map((product) => {
     //     return createData(product.ProductID, product.ProductName, product.ProductPrice);
     // });
-    const [rows, setRows] = React.useState(props.map((product) => {
+    const [rows, setRows] = useState(props.map((product) => {
         return createData(product.ProductID, product.ProductName, product.ProductPrice);
     }));
     const deleteItem = (id) => {
         const updatedRows = rows.filter((row) => row.ProductID !== id);
         setRows(updatedRows);
     };
-    React.useEffect(() => {
+
+    useEffect(() => {
         localStorage.setItem('Products', JSON.stringify(rows))
     }, [rows]);
     return (
